@@ -1,10 +1,12 @@
 package com.example.administrator.mycampus.bean;
 
+import cn.bmob.v3.BmobObject;
+
 /**
  * Created by Administrator on 2017/11/14 0014.
  */
 
-public class Help {
+public class Help extends BmobObject{
     private String content;
     private String contactWay;
     private String publishAccount;

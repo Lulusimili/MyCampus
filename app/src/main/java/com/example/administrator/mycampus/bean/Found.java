@@ -10,7 +10,7 @@ import cn.bmob.v3.datatype.BmobFile;
 public class Found extends BmobObject {
     private String content;
     private String contactWay;
-    private BmobFile photo;
+    private String imageUrl;
     private String publishAccount;
 
 
@@ -18,12 +18,12 @@ public class Found extends BmobObject {
         this.content= content;
     }
 
-    public void setContact(String contact) {
+    public void setContactWay(String contact) {
         this.contactWay = contact;
     }
 
-    public void setPhoto(BmobFile photo) {
-        this.photo = photo;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public void setPublishAccount(String publishAccount) {
@@ -39,8 +39,8 @@ public class Found extends BmobObject {
         return contactWay;
     }
 
-    public BmobFile getPhoto() {
-        return photo;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getPublishAccount() {

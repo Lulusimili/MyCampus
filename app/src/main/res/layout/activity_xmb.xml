@@ -6,26 +6,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.administrator.mycampus.activity.XMBActivity">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tollbar"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        android:background="?attr/colorPrimary">
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/add"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            />
+    </RelativeLayout>
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/tab"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textColor="@android:color/white"
         android:background="#5bc0ec"
+        app:pstsShouldExpand="true"
         app:pstsIndicatorColor="#f242b2"
         app:pstsIndicatorHeight="5dp">
     </com.astuetz.PagerSlidingTabStrip>
     <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/pager">
+        >
     </android.support.v4.view.ViewPager>
 
 </LinearLayout>

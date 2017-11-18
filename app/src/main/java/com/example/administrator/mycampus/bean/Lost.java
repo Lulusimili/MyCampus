@@ -1,5 +1,7 @@
 package com.example.administrator.mycampus.bean;
 
+import java.util.Date;
+
 import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.datatype.BmobFile;
 
@@ -11,7 +13,7 @@ public class Lost extends BmobObject {
 
     private String content;
     private String contactWay;
-    private BmobFile photo;
+    private String imageUrl;
     private String publishAccount;
     private String reward;
 
@@ -20,7 +22,7 @@ public class Lost extends BmobObject {
         this.content = contentWay;
     }
 
-    public void setContact(String contactWay) {
+    public void setContactWay(String contactWay) {
         this.contactWay = contactWay;
     }
 
@@ -32,8 +34,8 @@ public class Lost extends BmobObject {
         this.content = content;
     }
 
-    public void setPhoto(BmobFile photo) {
-        this.photo = photo;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public void setPublishAccount(String publishAccount) {
@@ -41,16 +43,16 @@ public class Lost extends BmobObject {
     }
 
 
-    public String getContentWay() {
+    public String getContent() {
         return content;
     }
 
-    public String getContact() {
+    public String getContactWay() {
         return contactWay;
     }
 
-    public BmobFile getPhoto() {
-        return photo;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getPublishAccount() {
@@ -60,4 +62,6 @@ public class Lost extends BmobObject {
     public String getReward() {
         return reward;
     }
+
+
 }

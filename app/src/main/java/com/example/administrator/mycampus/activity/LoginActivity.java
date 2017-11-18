@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.administrator.mycampus.R;
 import com.example.administrator.mycampus.cache.MyCache;
+import com.example.administrator.mycampus.util.MyBmob;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.RequestCallback;
 import com.netease.nimlib.sdk.auth.AuthService;
@@ -26,15 +27,13 @@ public class LoginActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Bmob.initialize(this, "7643e7a0d10e58cac56242e0b51b5377");
+        Bmob.initialize(this, MyBmob.BMOBKEY);
         NIMClient.init(getApplicationContext(), null, null);
         initView();
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 login();
-                Toast.makeText(LoginActivity.this,
-                        "登录失败,就不告诉你为什么,buibui",Toast.LENGTH_SHORT).show();
             }
         });
     }

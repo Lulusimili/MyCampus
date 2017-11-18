@@ -13,6 +13,8 @@
     <!-- 获取sd卡写的权限，用于文件上传和下载 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 允许读取手机状态 用于创建BmobInstallation -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    x
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -111,7 +113,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MessageActivity" />
-        <activity android:name=".activity.DetailsActivity"></activity>
         <activity android:name=".activity.XMBActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -121,7 +122,7 @@
                 />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AddActivity"></activity>
+        <activity android:name=".activity.AddActivity" />
     </application>
 
 </manifest>
