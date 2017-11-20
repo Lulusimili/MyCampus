@@ -29,26 +29,29 @@ import cn.bmob.v3.listener.FindListener;
 import static com.example.administrator.mycampus.util.MyUtils.showToast;
 
 
-public class LostFragment extends Fragment {
+public class LostFragment extends BaseFragment {
     private LostAdapter lostAdapter;
     private List<Lost> lostList=new ArrayList<>();
-    private RecyclerView recyclerView;
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_lost,container,false);
-        recyclerView=view.findViewById(R.id.recycler_view);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
-        lostAdapter=new LostAdapter(lostList,getContext());
-        recyclerView.setAdapter(lostAdapter);
-        Log.d("Lost","onCreate");
-        return view;
-    }
+   // private RecyclerView recyclerView;
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        View view=inflater.inflate(R.layout.fragment_lost,container,false);
+//        recyclerView=view.findViewById(R.id.recycler_view);
+//
+//        queryLost();
+//        Log.d("Lost","onCreate");
+//        return view;
+//    }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+       // recyclerView=view.findViewById(R.id.recycler_view);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
         queryLost();
+        lostAdapter=new LostAdapter(lostList,getContext());
+        int a=lostList.size();
+        recyclerView.setAdapter(lostAdapter);
         goToDetails();
-        Log.d("Lost","onViewCreated");
     }
 
     private void queryLost(){
@@ -60,6 +63,7 @@ public class LostFragment extends Fragment {
                         if (e == null) {
 //                            showToast("获取数据成功！");
                             lostList=object;
+                            int a=lostList.size();
                         } else {
 //                            showToast("数据获取失败"+e.getMessage());
                         }
@@ -82,10 +86,11 @@ public class LostFragment extends Fragment {
 
             @Override
             public void onClick(View view, int position) {
-                Intent intent=new Intent(getContext(), MessageActivity.class);
-                intent.putExtra("receiveId",lostList.get(position).getPublishAccount());
-                intent.putExtra("myAccount", MyCache.getAccount());
-                startActivity(intent);
+                    Intent intent = new Intent(getContext(), MessageActivity.class);
+                    intent.putExtra("receiveId", lostList.get(position).getPublishAccount());
+                    intent.putExtra("myAccount", MyCache.getAccount());
+                    startActivity(intent);
+
             }
         });
     }

@@ -31,31 +31,21 @@ import static com.example.administrator.mycampus.util.MyUtils.showToast;
  * Created by Administrator on 2017/11/14 0014.
  */
 
-public class FoundFragment extends Fragment {
+public class FoundFragment extends BaseFragment {
     private FoundAdapter foundAdapter;
     private List<Found> foundList=new ArrayList<>();
-    private RecyclerView recyclerView;
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_found,container,false);
-        recyclerView=view.findViewById(R.id.recycler_view);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
-        foundAdapter=new FoundAdapter(foundList,getContext());
-        recyclerView.setAdapter(foundAdapter);
-        Log.d("Found","onCreate");
-        return view;
-    }
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //recyclerView=view.findViewById(R.id.recycler_view);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
         queryFound();
+        foundAdapter=new FoundAdapter(foundList,getContext());
+        System.out.print("88888哈哈哈哈哈哈哈哈哈哈哈"+foundList.size());
+        recyclerView.setAdapter(foundAdapter);
         goToDetails();
-        Log.d("Found","onViewCreated");
     }
-
     private void queryFound(){
         BmobQuery<Found> query = new BmobQuery<>();
         query.order("-createdAt")
@@ -64,6 +54,7 @@ public class FoundFragment extends Fragment {
                     public void done(List<Found> object, BmobException e) {
                         if (e == null) {
                              foundList=object;
+                             Log.d("长度",foundList.get(0).getImageUrl());
                         } else {
                             showToast("数据获取失败"+e.getMessage());
                         }
@@ -75,7 +66,7 @@ public class FoundFragment extends Fragment {
               @Override
               public void onItemClick(View view, int position) {
                   Intent intent=new Intent(getContext(), AddActivity.class);
-                  intent.putExtra("from","lostFragment");
+                  intent.putExtra("from","foundFragment");
                   intent.putExtra("imageUrl",foundList.get(position).getImageUrl());
                   intent.putExtra("content",foundList.get(position).getContent());
                   intent.putExtra("contactWay",foundList.get(position).getContactWay());
@@ -86,10 +77,13 @@ public class FoundFragment extends Fragment {
 
               @Override
               public void onClick(View view, int position) {
-                  Intent intent=new Intent(getContext(), MessageActivity.class);
-                  intent.putExtra("receiveId",foundList.get(position).getPublishAccount());
-                  intent.putExtra("myAccount", MyCache.getAccount());
-                  startActivity(intent);
+
+                      Intent intent = new Intent(getContext(), MessageActivity.class);
+                      intent.putExtra("receiveId", foundList.get(position).getPublishAccount());
+                      intent.putExtra("myAccount", MyCache.getAccount());
+                      startActivity(intent);
+
+
               }
           });
       }

@@ -34,7 +34,7 @@ public class LostAdapter extends RecyclerView.Adapter<LostAdapter.ViewHolder> {
 
         public ViewHolder(View view){
             super(view);
-            photo=view.findViewById(R.id.photo);
+            photo=view.findViewById(R.id.image);
             publishTime=view.findViewById(R.id.publish_time);
             imageButton=view.findViewById(R.id.image_button);
             content=view.findViewById(R.id.content);
@@ -64,9 +64,8 @@ public class LostAdapter extends RecyclerView.Adapter<LostAdapter.ViewHolder> {
         holder.content.setText(lostList.get(position).getContent());
         holder.publishTime.setText(lostList.get(position).getCreatedAt());
         try {
-            Glide.with(getApplicationContext())
-                    .load(lostList.get(position)
-                            .getImageUrl())
+            Glide.with(context)
+                    .load(lostList.get(position).getImageUrl())
                     .into(holder.photo);
         }catch (Exception e){
             e.printStackTrace();

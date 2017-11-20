@@ -32,26 +32,30 @@ import static com.example.administrator.mycampus.util.MyUtils.showToast;
  * Created by Administrator on 2017/11/14 0014.
  */
 
-public class HelpFragment extends Fragment {
+public class HelpFragment extends BaseFragment {
     private HelpAdapter helpAdapter;
     private List<Help> helpList=new ArrayList<>();
-    private RecyclerView recyclerView;
+    //private RecyclerView recyclerView;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_help,container,false);
-        recyclerView=view.findViewById(R.id.recycler_view);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
-        helpAdapter=new HelpAdapter(helpList,getContext());
-        recyclerView.setAdapter(helpAdapter);
-        Log.d("Help","onCreate");
-        return view;
-    }
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        View view=inflater.inflate(R.layout.fragment_help,container,false);
+//        recyclerView=view.findViewById(R.id.recycler_view);
+//
+//        queryHelp();
+//        Log.d("Help","onCreate");
+//        return view;
+//    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        //recyclerView=view.findViewById(R.id.recycler_view);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
         queryHelp();
+        helpAdapter=new HelpAdapter(helpList,getContext());
+        recyclerView.setAdapter(helpAdapter);
+
         goToDetails();
         Log.d("Help","onViewCreated");
     }
@@ -83,10 +87,12 @@ public class HelpFragment extends Fragment {
 
             @Override
             public void onClick(View view, int position) {
-                Intent intent=new Intent(getContext(), MessageActivity.class);
-                intent.putExtra("receiveId",helpList.get(position).getPublishAccount());
-                intent.putExtra("myAccount", MyCache.getAccount());
-                startActivity(intent);
+
+                    Intent intent = new Intent(getContext(), MessageActivity.class);
+                    intent.putExtra("receiveId", helpList.get(position).getPublishAccount());
+                    intent.putExtra("myAccount", MyCache.getAccount());
+                    startActivity(intent);
+
             }
         });
     }

@@ -10,10 +10,9 @@ public class MsgInfo {
     private String left_text;
     private String id;
 
-    public MsgInfo(String left_text, String right_text,String id) {
+    public MsgInfo(String left_text, String right_text) {
         this.left_text=left_text;
         this.right_text=right_text;
-        this.id=id;
 
     }
 

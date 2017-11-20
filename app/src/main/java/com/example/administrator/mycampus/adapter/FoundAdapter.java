@@ -23,20 +23,19 @@ public class FoundAdapter extends RecyclerView.Adapter<FoundAdapter.ViewHolder> 
     private List<Found> foundList;
     private Context context;
     private FoundAdapter.OnItemClickListener onItemClickListener;
-    static class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView photo;
         TextView publishTime;
         ImageButton imageButton;
         TextView content;
 
-        public ViewHolder(View view){
+        public ViewHolder(View view) {
             super(view);
-            photo=view.findViewById(R.id.photo);
-            publishTime=view.findViewById(R.id.publish_time);
-            imageButton=view.findViewById(R.id.image_button);
-            content=view.findViewById(R.id.content);
+            photo = view.findViewById(R.id.image);
+            publishTime = view.findViewById(R.id.publish_time);
+            imageButton = view.findViewById(R.id.image_button);
+            content = view.findViewById(R.id.content);
         }
-
     }
 
     public void setOnItemClickListener(FoundAdapter.OnItemClickListener listener) {
@@ -56,19 +55,19 @@ public class FoundAdapter extends RecyclerView.Adapter<FoundAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(final FoundAdapter.ViewHolder holder,
+    public void onBindViewHolder(final ViewHolder holder,
                                  int position) {
 
         holder.content.setText(foundList.get(position).getContent());
         holder.publishTime.setText(foundList.get(position).getCreatedAt());
         try {
             Glide.with(context)
-                    .load(foundList.get(position)
-                            .getImageUrl())
+                    .load(foundList.get(position).getImageUrl())
                     .into(holder.photo);
         }catch (Exception e){
             e.printStackTrace();
         }
+
         //测试账号
         if (foundList.get(position).getPublishAccount().equals("123456")){
             holder.imageButton.setBackgroundResource(R.drawable.girl);
@@ -76,6 +75,8 @@ public class FoundAdapter extends RecyclerView.Adapter<FoundAdapter.ViewHolder> 
         else if(foundList.get(position).getPublishAccount().equals("654321")){
             holder.imageButton.setBackgroundResource(R.drawable.boy);
         }
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,7 +96,6 @@ public class FoundAdapter extends RecyclerView.Adapter<FoundAdapter.ViewHolder> 
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return foundList.size();

@@ -50,7 +50,7 @@ public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final HelpAdapter.ViewHolder holder, int position) {
-       holder.content.setText(helpList.get(position).getContent());
+        holder.content.setText(helpList.get(position).getContent());
         holder.publishTime.setText(helpList.get(position).getCreatedAt());
         if (helpList.get(position).getPublishAccount().equals("123456")){
             holder.imageButton.setBackgroundResource(R.drawable.girl);
@@ -63,9 +63,7 @@ public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.ViewHolder> {
             public void onClick(View view) {
                 if(onItemClickListener!=null){
                     int pos = holder.getLayoutPosition();
-
                     onItemClickListener.onItemClick(holder.itemView, pos);
-
 
                 }
             }

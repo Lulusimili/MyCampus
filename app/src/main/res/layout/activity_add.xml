@@ -59,6 +59,12 @@
                 android:background="@mipmap/mine_btn_plus" />
         </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="详细："
+        android:layout_marginLeft="10dp"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/edt_content"
@@ -70,6 +76,13 @@
         android:layout_marginTop="20dp"
         android:maxLines="5"
         android:hint="请输入描述..."/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:text="联系方式"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"/>
     <EditText
         android:id="@+id/edt_contact_way"
         android:layout_width="match_parent"
