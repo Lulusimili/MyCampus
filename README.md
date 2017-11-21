@@ -17,4 +17,16 @@
  像聊天发表情等，不过目前尚未提供删除和修改功能，也没有集成支付功能，主要是团队成员都是边学边
  做，的确水平有限，加上时间不多。总之，目前虽然实现上述一些功能，但是还有很多bug没能解决。
  ### 应用截图：
+ ![github](https://github.com/Lulusimili/screenshort/blob/master/Screenshot_2017-11-21-10-33-27-49.png)
+ ![github](https://github.com/Lulusimili/screenshort/blob/master/Screenshot_2017-11-21-10-33-45-72.png)
+ ![github](https://github.com/Lulusimili/screenshort/blob/master/Screenshot_2017-11-21-10-33-49-44.png)
+ ![github](https://github.com/Lulusimili/screenshort/blob/master/Screenshot_2017-11-21-10-34-08-21.png)
+ ### gif:
+ ![github](https://github.com/Lulusimili/screenshort/blob/master/gif1.gif)
+ ![github](https://github.com/Lulusimili/screenshort/blob/master/gif2.gif)
+ ### apk和视频链接：
+ 1.[点击这里你可以链接到gif1对应的MP4](https://github.com/Lulusimili/screenshort/blob/master/MP41.mp4)<br /> 
+ 2.[点击这里你可以链接到gif2对应的MP4](https://github.com/Lulusimili/screenshort/blob/master/MP42.mp4)<br /> 
+ 3.[点击这里你可以下载apk](https://github.com/Lulusimili/screenshort/blob/master/debug_apk.apk)<br /> 
  
+
